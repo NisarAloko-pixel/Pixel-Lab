@@ -1,4 +1,6 @@
-@php($appCurrency = \App\Models\Setting::get('currency', 'AF'))
+@php
+    $appCurrency = \App\Models\Setting::get('currency', 'AF');
+@endphp
 
 {{-- Purchases card for the main Reports page. Needs $purchases (period totals) and $recentPurchases (latest, any date). --}}
 <div class="card-3d p-6 mb-6">

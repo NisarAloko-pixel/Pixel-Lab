@@ -1,4 +1,6 @@
-@php($appCurrency = \App\Models\Setting::get('currency', 'AF'))
+@php
+    $appCurrency = \App\Models\Setting::get('currency', 'USD');
+@endphp
 <x-layouts.pixel>
 {{-- Chart.js loads once, outside the live area, so it is ready before the chart script runs --}}
 <script src="{{ asset('vendor/chartjs/chart.umd.js') }}"></script>
