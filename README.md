@@ -22,6 +22,7 @@
 [Installation](#-installation) •
 [Development](#-development) •
 [Security](#-security-notes) •
+[Support the project](#-support-the-project) •
 [Support](#-support)
 
 </div>
@@ -200,6 +201,34 @@ Found a problem or something isn't working correctly?
 - 💬 **WhatsApp:** [+93 76 4000 785](https://wa.me/93764000785)
 
 Professional deployment, desktop or mobile packaging and multi-computer setups are available on request.
+
+---
+
+## ☕ Support the Project
+
+Pixel Lab is built and maintained with care. If it saves you time or helps your business, a small tip is always appreciated and helps keep the project improving. Thank you! 💙
+
+<div align="center">
+
+<table>
+  <tr>
+    <th align="center">☕ Ko-fi</th>
+    <th align="center">💳 PayPal</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://ko-fi.com/Z4Q329FKC2" target="_blank">
+        <img height="42" src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" alt="Buy Me a Coffee at ko-fi.com">
+      </a>
+    </td>
+    <td align="center">
+      <img src="docs/paypal-qr.png" alt="PayPal QR code" width="160"><br>
+      <sub>Scan with your phone to tip via PayPal</sub>
+    </td>
+  </tr>
+</table>
+
+</div>
 
 ---
 
