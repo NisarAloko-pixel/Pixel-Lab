@@ -1,0 +1,307 @@
+/*
+ * Pixel Lab — single source of truth for theme colors and shared component
+ * classes used across every page. Edit colors here; pages just reference the
+ * classes/variables below and never redeclare :root themselves.
+ */
+
+:root {
+    --paper: #F7F5F0; --surface: #FFFFFF; --ink: #21262F; --ink-soft: #6B7080; --line: #E3DFD3;
+    --accent: #A8571E; --accent-soft: #F3E4D2; --accent-ink: #7A3E13; --accent-glow: #C97A3F;
+    --danger: #A13D2E; --danger-soft: #FBEDEA; --danger-line: #F0C9C2;
+    --success: #3D6B4F; --success-soft: #E7F1EA;
+    --warn: #9A7B2E; --warn-soft: #FBF1DC;
+    --blue: #3457A6; --blue-soft: #E3E9F7;
+    --purple: #6B4C9A; --purple-soft: #ECE4F5;
+    --side-bg: #FFFFFF; --side-bg-raised: #F3EFE6; --side-line: rgba(33,38,47,0.08);
+    --side-text: rgba(33,38,47,0.65); --side-text-strong: #21262F; --side-text-sub: rgba(33,38,47,0.5);
+}
+
+[data-theme="dark"] {
+    --paper: #15171C; --surface: #1E212B; --ink: #E7E5DE; --ink-soft: #9CA3AF; --line: #2C303B;
+    --accent: #C97A3F; --accent-soft: #3A2A1E; --accent-ink: #E8A868; --accent-glow: #C97A3F;
+    --danger: #E17868; --danger-soft: #3A2320; --danger-line: #5A342E;
+    --success: #6FBE93; --success-soft: #1E3327;
+    --warn: #E0B85C; --warn-soft: #3A311A;
+    --blue: #7FA8E8; --blue-soft: #1E2A3F;
+    --purple: #B49AE0; --purple-soft: #2C2438;
+    --side-bg: #171B23; --side-bg-raised: #1E2430; --side-line: rgba(255,255,255,0.06);
+    --side-text: rgba(255,255,255,0.65); --side-text-strong: #FFFFFF; --side-text-sub: rgba(255,255,255,0.5);
+}
+
+/* ---------- Typography / small utility classes, used across most pages ---------- */
+
+.ledger-font { font-family: "Source Serif 4", Georgia, serif; }
+.num { font-variant-numeric: tabular-nums; }
+.badge {
+    display: inline-flex; align-items: center; gap: .35rem;
+    padding: .2rem .6rem; border-radius: 9999px;
+    font-size: .72rem; font-weight: 600; white-space: nowrap;
+}
+
+/* ---------- Sidebar (layout) ---------- */
+
+.side-item {
+    display: flex; align-items: center; gap: .6rem;
+    padding: .65rem .85rem; border-radius: 10px;
+    color: var(--side-text); font-size: .95rem; font-weight: 600;
+    transition: all .15s ease;
+}
+.side-item:hover { background: var(--side-bg-raised); color: var(--side-text-strong); }
+.side-item.active {
+    background: var(--side-bg-raised);
+    color: var(--side-text-strong);
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.05) inset,
+        0 4px 10px -4px rgba(0,0,0,0.15),
+        inset 3px 0 0 var(--accent-glow);
+}
+.side-sub {
+    display: block; padding: .55rem .8rem .55rem 2.2rem;
+    border-radius: 8px; font-size: .875rem; font-weight: 500;
+    color: var(--side-text-sub);
+    transition: all .15s ease;
+}
+.side-sub:hover { background: var(--side-bg-raised); color: var(--side-text-strong); }
+.side-sub.active { color: var(--side-text-strong); font-weight: 600; background: var(--side-bg-raised); }
+.brand-mark { box-shadow: 0 2px 6px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.08) inset; }
+
+/* ---------- Topbar dropdown (layout) ---------- */
+
+.menu-link:hover { background: var(--paper); }
+
+/* ---------- Card treatments (profile page, reusable anywhere) ---------- */
+
+.card-3d {
+    background: var(--surface); border-radius: 16px; border: 1px solid var(--line);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 12px 24px -12px rgba(33,38,47,0.18), 0 4px 8px -4px rgba(33,38,47,0.08);
+}
+.card-danger {
+    background: var(--danger-soft); border-radius: 16px; border: 1px solid var(--danger-line);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 12px 24px -12px rgba(161,61,46,0.15);
+}
+.section-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(33,38,47,0.15), 0 1px 0 rgba(255,255,255,0.4) inset;
+}
+
+/* Style Breeze's default form partials to match the ledger inputs */
+.card-3d input[type="text"],
+.card-3d input[type="email"],
+.card-3d input[type="password"],
+.card-3d input[type="file"] {
+    width: 100%; border: 1px solid var(--line) !important; background: var(--paper) !important;
+    border-radius: .5rem; padding: .6rem .75rem; font-size: .875rem; color: var(--ink) !important;
+}
+/* Native file input — style the button chrome, since browsers won't
+   accept background/border on input[type=file] itself */
+.card-3d input[type="file"] {
+    border: none !important; background: transparent !important;
+    padding: 0 !important; color: var(--ink-soft) !important; font-size: .8rem;
+}
+.card-3d input[type="file"]::file-selector-button {
+    background: var(--paper); color: var(--ink);
+    border: 1px solid var(--line); border-radius: .5rem;
+    padding: .5rem .9rem; font-size: .8rem; font-weight: 600;
+    margin-right: .75rem; cursor: pointer;
+    transition: background .15s ease;
+}
+.card-3d input[type="file"]::file-selector-button:hover {
+    background: var(--surface);
+}
+.card-3d input:focus {
+    outline: none; box-shadow: 0 0 0 2px var(--accent); border-color: var(--accent) !important;
+}
+.card-3d label, .card-danger label {
+    font-size: .8rem; font-weight: 500; color: var(--ink-soft) !important; margin-bottom: .35rem; display: block;
+}
+
+.card-3d button[type="submit"],
+.card-3d .btn-primary {
+    background: var(--accent) !important; color: #FFF !important;
+    font-weight: 600; font-size: .875rem; padding: .6rem 1.1rem; border-radius: .5rem;
+    text-transform: none !important; letter-spacing: normal !important;
+}
+.card-danger button[type="submit"],
+.card-danger .btn-danger {
+    background: var(--danger) !important; color: #FFF !important;
+    font-weight: 600; font-size: .875rem; padding: .6rem 1.1rem; border-radius: .5rem;
+    text-transform: none !important; letter-spacing: normal !important;
+}
+
+/* Catch every Tailwind gray/green/indigo text class Breeze ships, regardless of
+   tag, so it follows --ink/--ink-soft/--success/--accent-ink instead of a fixed
+   hex value that ignores dark mode */
+.card-3d [class*="text-gray-9"], .card-danger [class*="text-gray-9"],
+.card-3d [class*="text-gray-8"], .card-danger [class*="text-gray-8"] {
+    color: var(--ink) !important;
+}
+.card-3d [class*="text-gray-7"], .card-danger [class*="text-gray-7"],
+.card-3d [class*="text-gray-6"], .card-danger [class*="text-gray-6"],
+.card-3d [class*="text-gray-5"], .card-danger [class*="text-gray-5"] {
+    color: var(--ink-soft) !important;
+}
+.card-3d [class*="text-green-6"], .card-danger [class*="text-green-6"] {
+    color: var(--success) !important;
+}
+.card-3d [class*="text-indigo"], .card-danger [class*="text-indigo"] {
+    color: var(--accent-ink) !important;
+}
+
+/* ---------- Icon action buttons + form fields (index/create/edit pages) ---------- */
+
+.icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 8px;
+    transition: background .15s ease;
+}
+.icon-btn:hover { background: var(--paper); }
+.icon-btn svg { width: 16px; height: 16px; }
+
+.field {
+    border: 1px solid var(--line); background: var(--paper);
+    border-radius: .5rem; padding: .55rem .75rem; font-size: .875rem; color: var(--ink);
+}
+.field:focus {
+    outline: none; box-shadow: 0 0 0 2px var(--accent); border-color: var(--accent);
+}
+
+/* ---------- Pills (period switchers — reports/index, reports/profit, reports/sales, dashboard) ---------- */
+
+.pill-group {
+    display: inline-flex; gap: 4px; padding: 4px;
+    background: var(--paper); border-radius: 12px; border: 1px solid var(--line);
+    box-shadow: inset 0 1px 3px rgba(33,38,47,0.08);
+}
+.pill {
+    padding: .5rem 1rem; font-size: .8rem; font-weight: 600;
+    border-radius: 8px; color: var(--ink-soft); white-space: nowrap;
+    transition: all .15s ease;
+}
+.pill.active {
+    background: var(--accent-ink); color: #FFF;
+    box-shadow: 0 2px 6px rgba(33,38,47,0.35), 0 1px 0 rgba(255,255,255,0.15) inset;
+}
+.pill:not(.active):hover { background: var(--surface); }
+
+/* ---------- Metric / mini cards (dashboard, reports/index) ---------- */
+
+.metric-card {
+    background: var(--surface); border-radius: 14px; border: 1px solid var(--line);
+    padding: 1.25rem 1.4rem; position: relative; overflow: hidden;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 8px 18px -10px rgba(33,38,47,0.16);
+}
+.metric-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent-ink), var(--accent-soft));
+}
+.metric-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(33,38,47,0.15), 0 1px 0 rgba(255,255,255,0.4) inset;
+}
+.mini-card {
+    background: var(--surface); border-radius: 12px; border: 1px solid var(--line);
+    padding: 1rem 1.2rem; display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 6px 14px -8px rgba(33,38,47,0.14);
+}
+.link-card {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--surface); border-radius: 12px; border: 1px solid var(--line);
+    padding: 1rem 1.2rem;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 6px 14px -8px rgba(33,38,47,0.14);
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+.link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 12px 20px -8px rgba(33,38,47,0.20);
+}
+
+.change-up { color: var(--success); }
+.change-down { color: var(--danger); }
+
+/* ---------- Ledger rows (profit report, financial summary) ---------- */
+
+.row-raised {
+    background: var(--paper); border-radius: 10px; padding: 1rem 1.1rem;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset, 0 2px 6px -2px rgba(33,38,47,0.10);
+}
+.row-flat { padding: .85rem 1.1rem; }
+.value-strong { font-weight: 700; text-shadow: 0 1px 0 rgba(255,255,255,0.5); }
+
+/* ---------- Bar rows (top products) ---------- */
+
+.bar-row { display: flex; align-items: center; gap: .75rem; }
+.bar-track {
+    flex: 1; height: 8px; background: var(--paper); border-radius: 9999px;
+    box-shadow: inset 0 1px 2px rgba(33,38,47,0.12); overflow: hidden;
+}
+.bar-fill { height: 100%; border-radius: 9999px; background: linear-gradient(90deg, var(--accent-ink), var(--accent)); }
+
+/* ---------- Scrollbars: hidden everywhere, scrolling still works ---------- */
+
+html, body, * {
+    scrollbar-width: none;      /* Chromium 121+ / Firefox */
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* ---------- Full-width pages ---------- */
+
+main :is(.max-w-xl, .max-w-2xl, .max-w-3xl, .max-w-4xl, .max-w-5xl, .max-w-6xl, .max-w-7xl, .container),
+main > :is(.max-w-xl, .max-w-2xl, .max-w-3xl, .max-w-4xl, .max-w-5xl, .max-w-6xl, .max-w-7xl, .container) {
+    max-width: none !important;
+    width: 100%;
+    padding-left: 3.5rem !important;   /* left space */
+    padding-right: 3.5rem !important;  /* right space */
+}
+
+/* Smooth growth when the sidebar toggles */
+main { transition: padding .28s cubic-bezier(.4, 0, .2, 1); }
+
+
+/* ---------- Responsive tables: fit the available width, never hide Actions ---------- */
+
+/* Card around a table: scroll instead of clipping if it truly can't fit */
+main :is(.overflow-hidden, .card-3d, .rounded-xl, .rounded-lg):has(> table),
+main :is(.overflow-hidden, .card-3d, .rounded-xl, .rounded-lg):has(> div > table) {
+    overflow-x: auto !important;
+}
+
+main table {
+    width: 100% !important;
+    table-layout: auto !important;   /* columns resize to their content */
+}
+
+/* Tighter cells so more columns fit side by side */
+main table :is(th, td) {
+    padding-left: .6rem !important;
+    padding-right: .6rem !important;
+}
+
+/* Let text columns wrap instead of forcing the table wider */
+main table td { white-space: normal; word-break: break-word; }
+
+/* Short columns (numbers, badges, dates) stay on one line */
+main table td:is(.num, [class*="text-right"]),
+main table td .badge { white-space: nowrap; }
+
+/* Actions column: always fully visible, never shrinks or wraps */
+main table :is(th, td):last-child {
+    white-space: nowrap !important;
+    width: 1%;
+    text-align: right;
+}
+main table td:last-child > * { flex-shrink: 0; }
+main table td:last-child .icon-btn { display: inline-flex; }
+
+/* With the sidebar open there is less room, so tighten a bit more */
+html[data-sidebar="full"] main table :is(th, td) {
+    padding-left: .45rem !important;
+    padding-right: .45rem !important;
+    font-size: .85rem;
+}
