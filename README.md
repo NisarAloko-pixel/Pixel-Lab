@@ -1,57 +1,123 @@
+<div align="center">
+
+<img src="docs/screenshots/logo.png" alt="Pixel Lab logo" width="160">
+
 # Pixel Lab
 
-**3D Printing Management System**: one centralized web application for managing sales, customers, suppliers, filament and product inventory, expenses and finances for a 3D printing business.
+### 3D Printing Management System
 
-Built with Laravel. Runs on a standard PHP server with a local SQLite database, so there are no external services to set up.
+**One centralized web app to manage sales, customers, suppliers, filament & product inventory, expenses and finances for your 3D printing business.**
 
-<!--
-Add screenshots here, for example:
-![Dashboard](docs/screenshots/dashboard.png)
--->
+<br>
 
-## Features
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP_8.3+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Alpine.js](https://img.shields.io/badge/Alpine.js-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
+[Features](#-features) •
+[Screenshots](#-screenshots) •
+[Installation](#-installation) •
+[Development](#-development) •
+[Security](#-security-notes) •
+[Support](#-support)
+
+</div>
+
+---
+
+## 📖 About
+
+**Pixel Lab** is a complete business management system built for 3D printing shops. Track every sale, know exactly what you owe and what you're owed, monitor filament cost per gram, and see your real profit, all from a single dashboard.
+
+It runs on a standard PHP server with a local **SQLite** database, so there are **no external services to set up**.
+
+- 🚀 Zero-config database (SQLite)
+- 🌗 Light & dark themes
+- 📱 Responsive on desktop and mobile
+- 🔐 Role-based access control
+- 💾 Built-in backup & restore
+
+---
+
+## 🖼 Screenshots
+
+| Dashboard | New Sale |
+|:---:|:---:|
+| ![Dashboard](docs/screenshots/dashboard.png) | ![New Sale](docs/screenshots/sale.png) |
+
+| New Product | Log Purchase |
+|:---:|:---:|
+| ![New Product](docs/screenshots/product.png) | ![Log Purchase](docs/screenshots/purchase.png) |
+
+---
+
+## ✨ Features
+
+### 💰 Sales & Customers
 | Module | What it does |
 |---|---|
 | **Dashboard** | Sales, profit, expenses and receivables at a glance, with period filters (today, week, month, year) and charts |
 | **Sales** | Create, track and invoice sales, payments and cancellations, including free items |
 | **Customers** | Customer details, history and outstanding balances |
+
+### 📦 Inventory & Purchasing
+| Module | What it does |
+|---|---|
 | **Suppliers** | Supplier records and what you owe them |
 | **Purchases** | Purchase orders, arrivals and payments, with multi-currency support |
 | **Filament Inventory** | Filament stock, usage and cost per gram |
 | **Product Inventory** | Products, stock levels, damaged items and inventory value |
 | **Supplies** | Supply management; apply purchases to stock |
+
+### 🏦 Finance
+| Module | What it does |
+|---|---|
 | **Expenses** | Operational expenses by category |
 | **Balance & Shareholders** | Account balances, deposits, transfers and shareholder transactions |
 | **Transactions** | A clear record of all financial transactions |
 | **Employees & Advances** | Employees and their advance payments |
-| **Reports & Export** | Sales, profit, expense and purchase reports with PDF, Excel and CSV export |
+
+### 📊 Reporting & Administration
+| Module | What it does |
+|---|---|
+| **Reports & Export** | Sales, profit, expense and purchase reports with **PDF, Excel and CSV** export |
 | **Users & Roles** | Access control with users, roles and permissions |
 | **Audit Logs** | Who did what across the system |
 | **Backup & Restore** | Back up your data and restore it when needed |
 | **Settings** | Business details, currency, time zone and backup options |
 
-The interface supports light and dark themes and is responsive for desktop and mobile browsers.
+---
 
-## Tech stack
+## 🧰 Tech Stack
 
-- **Backend:** Laravel (PHP 8.3+)
-- **Database:** SQLite
-- **Frontend:** Blade, Alpine.js, Tailwind CSS, Vite
-- **Access control:** [spatie/laravel-permission](https://github.com/spatie/laravel-permission)
+| Layer | Technology |
+|---|---|
+| Backend | Laravel (PHP 8.3+) |
+| Database | SQLite |
+| Frontend | Blade, Alpine.js, Tailwind CSS, Vite |
+| Access control | [spatie/laravel-permission](https://github.com/spatie/laravel-permission) |
 
-## Requirements
+---
 
-- PHP 8.3 or newer, with the `sqlite3`, `pdo_sqlite`, `mbstring`, `xml`, `zip` and `gd` extensions
-- [Composer](https://getcomposer.org/)
-- Node.js 18+ and npm
+## ✅ Requirements
 
-## Installation
+- **PHP 8.3+** with the extensions: `sqlite3`, `pdo_sqlite`, `mbstring`, `xml`, `zip`, `gd`
+- [**Composer**](https://getcomposer.org/)
+- **Node.js 18+** and npm
+
+---
+
+## 🚀 Installation
+
+> 📘 **Need a detailed walkthrough?** See the full [Setup Guide](SETUP.md) for Windows, Linux, macOS and live-server deployment.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USER/YOUR_REPO.git
-cd YOUR_REPO
+git clone https://github.com/NisarAloko-pixel/Pixel-Lab.git
+cd Pixel-Lab
 
 # 2. Install dependencies
 composer install
@@ -72,27 +138,30 @@ npm run build
 php artisan serve
 ```
 
-Open <http://127.0.0.1:8000> and sign in with the administrator account you set in `.env`.
+Open **<http://127.0.0.1:8000>** and sign in with the administrator account you set in `.env`.
 
-### Administrator account
+### 🔑 Administrator account
 
 Set these values in `.env` **before** running `php artisan migrate --seed`:
 
 ```env
-ADMIN_EMAIL=admin@pixelstudio.com
-ADMIN_PASSWORD=12345678
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=choose-a-strong-password
 ```
 
+> [!WARNING]
+> Always choose your own strong password. Never use a simple or example password on a live server.
 
+---
 
-## Development
+## 🛠 Development
 
 ```bash
 npm run dev          # Vite dev server with hot reload
 php artisan serve    # PHP development server
 ```
 
-Useful commands:
+**Useful commands**
 
 ```bash
 php artisan optimize:clear   # clear config, route, view and cache files
@@ -100,7 +169,9 @@ php artisan route:list       # list all routes
 php artisan migrate:status   # check pending migrations
 ```
 
-## Project structure
+---
+
+## 🗂 Project Structure
 
 ```
 app/                  Controllers, models, services, exports
@@ -110,21 +181,40 @@ resources/views/      Blade templates
 routes/               Web and auth routes
 ```
 
-## Security notes
+---
+
+## 🔒 Security Notes
 
 - Never commit your `.env` file or any `.sqlite` database. Both are listed in `.gitignore`.
 - Use `APP_ENV=production` and `APP_DEBUG=false` on a live server.
-- Serve the app over HTTPS and point the web server at the `public/` directory only.
+- Serve the app over **HTTPS** and point the web server at the `public/` directory only.
+- Change the default administrator password immediately after the first login.
 
-## Support
+---
+
+## 💬 Support
 
 Found a problem or something isn't working correctly?
 
-- **Email:** nisaraymal@gmail.com
-- **WhatsApp:** +93 76 4000 785
+- 📧 **Email:** [nisaraymal@gmail.com](mailto:nisaraymal@gmail.com)
+- 💬 **WhatsApp:** [+93 76 4000 785](https://wa.me/93764000785)
 
 Professional deployment, desktop or mobile packaging and multi-computer setups are available on request.
 
-## Author
+---
+
+## 📄 License
+
+Add your license here (for example MIT) and include a `LICENSE` file in the repository.
+
+---
+
+<div align="center">
+
+### 👨‍💻 Author
 
 Built by **NiSaR Aloko**: practical, reliable and modern business management solutions.
+
+⭐ If you find this project useful, please consider giving it a star!
+
+</div>
