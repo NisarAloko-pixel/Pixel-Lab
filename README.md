@@ -23,6 +23,7 @@
 [Development](#-development) •
 [Security](#-security-notes) •
 [Support the project](#-support-the-project) •
+[Premium](#-premium-package) •
 [Support](#-support)
 
 </div>
@@ -232,9 +233,20 @@ Pixel Lab is built and maintained with care. If it saves you time or helps your 
 
 ---
 
-## 📄 License
+## 💎 Premium Package
 
-Add your license here (for example MIT) and include a `LICENSE` file in the repository.
+**Take your system further.** Need Pixel Lab as a desktop or mobile application, or want to run it across multiple computers with shared data? Professional deployment and custom setups are available.
+
+| 🖥 Desktop Application | 📱 Mobile Application | 🔗 Multi-Computer Setup |
+|:---:|:---:|:---:|
+| Run the system as a dedicated desktop application. | Access your business system from supported mobile devices. | Run the system across multiple computers with centralized shared data. |
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-nisaraymal@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nisaraymal@gmail.com?subject=Premium%20setup%20inquiry)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-+93_76_4000_785-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/93764000785)
+
+</div>
 
 ---
 
