@@ -342,7 +342,7 @@
         overflow-y: auto;
     }
     .tp-box {
-        position: relative; width: 100%; max-width: 340px; overflow: hidden;
+        position: relative; width: 100%; max-width: 640px; overflow: hidden;
         background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
         box-shadow: 0 20px 40px -12px rgba(0,0,0,.55);
     }
@@ -393,6 +393,30 @@
     .tp-pay iframe { color-scheme: light; }
 
     .tp-foot { padding: .55rem 1rem; text-align: center; font-size: .66rem; color: var(--ink-soft); border-top: 1px solid var(--line); background: var(--paper); }
+        /* Ko-fi + PayPal side by side */
+    .tp-cols {
+        display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .8rem; margin-top: .9rem; align-items: stretch; text-align: center;
+    }
+    .tp-kofi-card {
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .55rem;
+        padding: 1rem .9rem; border-radius: 10px; border: 1px solid var(--line); background: var(--paper);
+    }
+    .tp-kofi-icon {
+        width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+        background: #FF5E5B; color: #FFF; box-shadow: 0 6px 14px -8px rgba(255, 94, 91, .8);
+    }
+    .tp-kofi-icon svg { width: 20px; height: 20px; }
+    .tp-kofi-card h4 { font-size: .9rem; font-weight: 600; }
+    .tp-kofi {
+        display: flex; align-items: center; justify-content: center; gap: .4rem; width: 100%;
+        padding: .6rem 1rem; border-radius: 10px;
+        background: #FF5E5B; color: #FFF; font-size: .82rem; font-weight: 600;
+        box-shadow: 0 6px 14px -8px rgba(255, 94, 91, .8);
+        transition: transform .15s ease, filter .15s ease;
+    }
+    .tp-kofi:hover { transform: translateY(-1px); filter: brightness(1.06); }
+    @media (max-width: 640px) { .tp-cols { grid-template-columns: minmax(0, 1fr); } }
 
     /* ---------- Responsive ---------- */
     @media (max-width: 1024px) {
@@ -620,17 +644,30 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                 </div>
                 <h3 id="tip-title" class="tp-title ledger-font">Leave a tip</h3>
-                <p class="tp-sub">Choose how you'd like to send it.</p>
+                               <p class="tp-sub">Choose how you'd like to send it.</p>
 
-                {{-- PayPal hosted button --}}
-                <div class="tp-pay">
-                    <div id="paypal-container-YZ8X3J48DPRPG"></div>
-                    <p x-show="!ppReady && !ppError" class="tp-sub" style="color:#555;">Loading secure payment…</p>
-                    <p x-show="ppError" x-cloak class="tp-sub" style="color:#b00020;">
-                        Couldn't load PayPal. Check your internet connection and try again.
-                    </p>
+                <div class="tp-cols">
+
+                    {{-- Ko-fi --}}
+                    <div class="tp-kofi-card">
+                        <div class="tp-kofi-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+                        </div>
+                        <h4 class="ledger-font">Ko-fi</h4>
+                        <p class="tp-sub" style="margin-top:0;">Choose any amount on Ko-fi.</p>
+                        <a href="https://ko-fi.com/Z4Q329FKC2" target="_blank" rel="noopener" class="tp-kofi">Tip on Ko-fi</a>
+                    </div>
+
+                    {{-- PayPal hosted button --}}
+                    <div class="tp-pay" style="margin-top:0;">
+                        <div id="paypal-container-YZ8X3J48DPRPG"></div>
+                        <p x-show="!ppReady && !ppError" class="tp-sub" style="color:#555;">Loading secure payment…</p>
+                        <p x-show="ppError" x-cloak class="tp-sub" style="color:#b00020;">
+                            Couldn't load PayPal. Check your internet connection and try again.
+                        </p>
+                    </div>
+
                 </div>
-            </div>
 
             <div class="tp-foot">Thank you for the support</div>
         </div>
